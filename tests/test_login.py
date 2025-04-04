@@ -7,6 +7,7 @@ from django.core.cache import cache
 @pytest.fixture
 def usuario_ativo(db):
     """Cria um usuário ativo no banco de dados"""
+    print("testando")
     return User.objects.create_user(username="testuser", password="correctpassword", is_active=True)
 
 
