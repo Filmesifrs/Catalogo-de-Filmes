@@ -1,0 +1,151 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Corpo da página */
+body {
+  background-color: #111111;
+  color: #e4e4e4;
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Container principal */
+.container {
+  background-color: #181427;
+  padding: 2rem;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+/* Título */
+h1 {
+  font-family: 'Italianno', cursive;
+  font-size: 3rem;
+  color: #ffffff;
+}
+
+/* Grupo de inputs */
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #231740;
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+}
+
+.input-group i {
+  color: #bbb;
+  font-size: 1.2rem;
+  margin-right: 0.8rem;
+}
+
+.input-group input {
+  background: transparent;
+  border: none;
+  outline: none;
+  flex: 1;
+  color: #e4e4e4;
+  font-size: 1rem;
+}
+
+/* Botão principal */
+.btn {
+  background-color: #5923B8; /* Roxo conforme especificação */
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #471F86; /* Tom mais escuro no hover */
+}
+
+/* Links */
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.links a {
+  color: #6225D1; /* Roxo para os links */
+  text-decoration: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.links a:hover {
+  color: #ffffff;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #2C194F;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(72, 33, 134, 0.5);
+  display: none;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .btn {
+    font-size: 1rem;
+  }
+
+  .links a {
+    font-size: 0.85rem;
+  }
+}
+/* Controle de visibilidade das telas */
+.container {
+  display: none;
+}
+
+.container.active {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Modal */
+.modal {
+  display: none;
+}
+
+.modal.active {
+  display: block;
+}
