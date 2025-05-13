@@ -6,6 +6,9 @@ from django.contrib import messages
 
 from .forms import CustomLoginForm, CustomRegisterForm, CustomPasswordChangeForm
 
+def home(request):
+     return render(request, 'base.html')
+
 def login_view(request):
   if request.method == 'POST':
     form = CustomLoginForm(request, data=request.POST)
