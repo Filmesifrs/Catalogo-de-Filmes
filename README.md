@@ -20,7 +20,7 @@ O **Catálogo de Filmes** é um aplicativo web desenvolvido em **Python com Djan
 ### 1. **Clonar o repositório**
 Primeiro, clone o repositório do projeto para o seu ambiente local:
 ```sh
-git clone https://github.com/Danielle-Kuhn/Catalogo-de-Filmes
+git clone https://github.com/Filmesifrs/Catalogo-de-Filmes
 ```
 
 ### 2. **Criar e Ativar o Ambiente Virtual**
@@ -29,7 +29,7 @@ git clone https://github.com/Danielle-Kuhn/Catalogo-de-Filmes
 #### Para Windows:
 ```sh
 python -m venv .venv
-.venv\Scriptsctivate
+.venv\Scripts\activate
 ```
 
 #### Para Linux/Mac:

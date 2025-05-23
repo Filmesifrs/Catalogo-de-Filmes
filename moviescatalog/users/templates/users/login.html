@@ -8,7 +8,7 @@
 {% block content %}
 <div class="login-container container active">
 
-  <h1 class="title-page-login-register">Filmes</h1>
+   <h1 class="title-page-login-register">Film+</h1>
 
   <form class="form-login-register" method="POST">
 
@@ -38,6 +38,9 @@
     <a href="{% url 'change_password' %}">Esqueci minha senha</a>
     <a href="{% url 'register' %}">Criar minha conta</a>
   </div>
+
+  <img src="{% static 'img/pipoca.png' %}" alt="pipoca" class="img-fundo-login">
+
 </div>
 {% endblock %}
 
