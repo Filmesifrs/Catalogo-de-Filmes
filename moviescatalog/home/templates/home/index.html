@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Filmes | Catálogo de Filmes{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div class="container-filmes">
+  <!-- Header com menu e busca -->
+  <header class="header">
+    <div class="menu-container">
+      <button class="menu-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#sideMenu" aria-controls="sideMenu">
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="logo">
+        <h1>Film+</h1>
+      </div>
+      <div class="user-info">
+        <button class="details-button" type="button">
+          <i class="bi bi-person-check-fill"></i>
+        </button>
+      </div>
+      <div class="search-container">
+        <input type="text" class="search-input" />
+        <button class="search-button">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu lateral (offcanvas) -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="sideMenu" aria-labelledby="sideMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="sideMenuLabel">Menu</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="bi bi-house-fill"></i> Início</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="bi bi-film"></i> Filmes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="bi bi-star-fill"></i> Favoritos</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Conteúdo principal -->
+  <main class="main-content">
+    <section class="top-movie">
+      {% if top_movie %}
+        <div class="top-movie-card">
+          <div class="top-movie-image">
+            {% if top_movie.poster %}
+            <img src="{{ top_movie.poster.url }}" alt="{{ top_movie.title }}" />
+            {% else %}
+            <div class="placeholder-image">Sem imagem</div>
+            {% endif %}
+          </div>
+          <div class="top-movie-info">
+            <div class="top-movie-title">
+              <h2>Top #1</h2>
+              <p>{{ top_movie.title }}</p>
+            </div>
+            <div class="top-movie-stats">
+              <div class="likes">
+                <i class="bi bi-hand-thumbs-up-fill"></i>
+                <span>547</span>
+              </div>
+              <div class="views">
+                <i class="bi bi-eye-fill"></i>
+                <span>154</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% else %}
+        <div class="no-movie">
+          <p>Nenhum filme em destaque disponível</p>
+        </div>
+      {% endif %}
+    </section>
+
+    <!-- Filmes em destaque hoje (Carrossel) -->
+    <section class="featured-movies">
+      <h2>Em destaque hoje</h2>
+      
+      <!-- Carrossel Bootstrap com 3 filmes por slide -->
+      <div id="featuredMoviesCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          {% if featured_movies_groups %}
+            {% for group in featured_movies_groups %}
+              <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <div class="row">
+                  {% for movie in group %}
+                    <div class="col-4">
+                      <div class="movie-card">
+                        {% if movie.poster %}
+                          <img src="{{ movie.poster.url }}" class="d-block w-100" alt="{{ movie.title }}">
+                        {% else %}
+                          <div class="placeholder-image">Sem imagem</div>
+                        {% endif %}
+                        <div class="movie-info">
+                          <p class="movie-title">{{ movie.title }}</p>
+                          <div class="movie-rating">
+                            {% for i in "12345" %}
+                              {% if forloop.counter <= 3 %}
+                                <i class="bi bi-star-fill"></i>
+                              {% else %}
+                                <i class="bi bi-star"></i>
+                              {% endif %}
+                            {% endfor %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endfor %}
+          {% else %}
+            <div class="carousel-item active">
+              <div class="no-movies">
+                <p>Nenhum filme em destaque disponível</p>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+        
+        <!-- Controles do carrossel -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#featuredMoviesCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#featuredMoviesCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Próximo</span>
+        </button>
+        
+        <!-- Indicadores do carrossel -->
+        <div class="carousel-indicators">
+          {% for group in featured_movies_groups %}
+            <button type="button" data-bs-target="#featuredMoviesCarousel" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active" aria-current="true"{% endif %} aria-label="Slide {{ forloop.counter }}"></button>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/home.js' %}"></script>
+{% endblock %}
