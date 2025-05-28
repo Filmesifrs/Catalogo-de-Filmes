@@ -46,7 +46,8 @@ INSTALLED_APPS = [
   'rating',
   'recommendation',
   'watched',
-  'users'
+  'users',
+  'home',
 ]
 
 MIDDLEWARE = [
