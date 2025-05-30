@@ -1,0 +1,33 @@
+{% extends '../base.html' %}
+
+{% block content %}
+<h1>Buscar Filmes</h1>
+
+<form method="get" action="{% url 'movie_search' %}">
+  {{ form.query }}
+  <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+{% if movies %}
+  <ul class="list-group mt-3">
+    {% for movie in movies %}
+      <li class="list-group-item">
+        <h5>{{ movie.title }} ({{ movie.release_year }})</h5>
+        <p>{{ movie.synopsis|truncatechars:100 }}</p>
+        <p><strong>Gêneros:</strong>
+          {% for genre in movie.genres.all %}
+            {{ genre.name }}{% if not forloop.last %}, {% endif %}
+          {% endfor %}
+        </p>
+        <p><strong>Pessoas:</strong>
+          {% for person in movie.people.all %}
+            {{ person.name }}{% if not forloop.last %}, {% endif %}
+          {% endfor %}
+        </p>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p class="mt-3">Nenhum resultado encontrado.</p>
+{% endif %}
+{% endblock %}
