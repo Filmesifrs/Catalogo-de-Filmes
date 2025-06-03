@@ -1,0 +1,24 @@
+{% load static %}
+
+<header class="header">
+  <div class="menu-container">
+    <div class="user-info">
+      <button class="details-button" type="button">
+        <i class="bi bi-person-check-fill"></i>
+      </button>
+    </div>
+    
+    <div class="logo">
+      <a href="{% url 'home:home' %}"><h1>Film+</h1></a>
+    </div>
+
+    <div class="search-container">
+      <form method="get" action="{% url 'movie_search' %}" class="search-form-header">
+        <input type="text" name="query" value="{{ request.GET.query }}" placeholder="Buscar filmes..." class="search-input" />
+        <button type="submit" class="search-button">
+          <i class="bi bi-search"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+</header>

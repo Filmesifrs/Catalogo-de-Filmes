@@ -4,54 +4,16 @@
 {% block title %}Filmes | Catálogo de Filmes{% endblock %}
 
 {% block style %}
+<link rel="stylesheet" href="{% static 'css/header.css' %}">
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+<link rel="stylesheet" href="{% static 'css/footer.css' %}" />
 {% endblock %}
 
 {% block content %}
 <div class="container-filmes">
-  <!-- Header com menu e busca -->
-  <header class="header">
-    <div class="menu-container">
-      <button class="menu-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#sideMenu" aria-controls="sideMenu">
-        <i class="bi bi-list"></i>
-      </button>
-      <div class="logo">
-        <h1>Film+</h1>
-      </div>
-      <div class="user-info">
-        <button class="details-button" type="button">
-          <i class="bi bi-person-check-fill"></i>
-        </button>
-      </div>
-      <div class="search-container">
-        <input type="text" class="search-input" />
-        <button class="search-button">
-          <i class="bi bi-search"></i>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Menu lateral (offcanvas) -->
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="sideMenu" aria-labelledby="sideMenuLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="sideMenuLabel">Menu</h5>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="bi bi-house-fill"></i> Início</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="bi bi-film"></i> Filmes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="bi bi-star-fill"></i> Favoritos</a>
-        </li>
-      </ul>
-    </div>
-  </div>
+  {% block header %}
+    {% include 'header.html' %}
+  {% endblock %}
 
   <!-- Conteúdo principal -->
   <main class="main-content">
@@ -154,6 +116,10 @@
       </div>
     </section>
   </main>
+
+  {% block footer %}
+    {% include 'footer.html' %}
+  {% endblock %}
 </div>
 {% endblock %}
 
