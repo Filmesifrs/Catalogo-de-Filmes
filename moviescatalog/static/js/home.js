@@ -13,25 +13,29 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.querySelector('.search-input');
     
     if (searchButton && searchInput) {
-      searchButton.addEventListener('click', function() {
+      // Função para realizar a busca
+      function performSearch() {
         const searchTerm = searchInput.value.trim();
         if (searchTerm) {
-          // Aqui podemos implementar a busca
-          console.log('Buscando por:', searchTerm);
-          // Exemplo de redirecionamento para uma página de resultados
-          // window.location.href = `/search/?q=${encodeURIComponent(searchTerm)}`;
+          // Redirecionar para a página de resultados da busca
+          window.location.href = `/search/?query=${encodeURIComponent(searchTerm)}`;
+        } else {
+          // Se o campo estiver vazio, mostrar um alerta
+          alert('Por favor, digite algo para buscar.');
         }
+      }
+
+      // Buscar ao clicar no botão
+      searchButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        performSearch();
       });
 
       // Permitir busca ao pressionar Enter
       searchInput.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
-          const searchTerm = searchInput.value.trim();
-          if (searchTerm) {
-            console.log('Buscando por:', searchTerm);
-            // Exemplo de redirecionamento para uma página de resultados
-            // window.location.href = `/search/?q=${encodeURIComponent(searchTerm)}`;
-          }
+          e.preventDefault();
+          performSearch();
         }
       });
     }

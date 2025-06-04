@@ -49,6 +49,7 @@ INSTALLED_APPS = [
   'watched',
   'users',
   'home',
+  'search',
 ]
 
 MIDDLEWARE = [

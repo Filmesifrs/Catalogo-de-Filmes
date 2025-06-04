@@ -1,0 +1,59 @@
+/* ===================================
+  Bottom Navigation - Container
+=================================== */
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  background: rgba(26, 26, 46, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-around;
+  padding: 1px 0;
+}
+
+/* ===================================
+  Bottom Navigation - Itens
+=================================== */
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 10px;
+  transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+  color: #8b5cf6;
+  text-decoration: none;
+}
+
+.nav-item.active {
+  color: #8b5cf6;
+}
+
+.nav-icon {
+  font-size: 20px;
+}
+
+.bottom-nav .nav-item {
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+}
+
+.bottom-nav .nav-item.active {
+  color: #6f42c1;
+}
+
+.bottom-nav .nav-item i {
+  font-size: 2rem;
+}
