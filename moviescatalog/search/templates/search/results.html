@@ -31,7 +31,6 @@
             <h3 class="movie-title">{{ movie.title }}</h3>
             <p class="movie-meta">{{ movie.release_year }}</p>
             <div class="movie-tags">
-              <span class="tag">LIVRE</span>
               {% for genre in movie.genres.all %}
                 <span class="tag">{{ genre.name }}</span>
               {% endfor %}

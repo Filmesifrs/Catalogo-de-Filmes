@@ -5,15 +5,13 @@
 .bottom-nav {
   position: fixed;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
   width: 100%;
-  background: rgba(26, 26, 46, 0.95);
+  background-color: #141322;
   backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   justify-content: space-around;
   padding: 1px 0;
+  z-index: 99;
 }
 
 /* ===================================
@@ -38,10 +36,6 @@
 
 .nav-item.active {
   color: #8b5cf6;
-}
-
-.nav-icon {
-  font-size: 20px;
 }
 
 .bottom-nav .nav-item {
