@@ -144,6 +144,10 @@ input[type="password"]::placeholder {
   background: linear-gradient(90deg, #6d38cb, #471f86);
 }
 
+.logo a {
+  text-decoration: none;
+}
+
 /* ============================================================
   IMAGENS DE FUNDO
 ============================================================ */
