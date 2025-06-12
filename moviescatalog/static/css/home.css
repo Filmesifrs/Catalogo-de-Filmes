@@ -154,6 +154,15 @@
   font-size: 14px;
 }
 
+a.movie-link {
+  text-decoration: none;
+  color: inherit;
+}
+a.movie-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
 .carousel-inner .col-4 {
   padding: 0 5px;
 }

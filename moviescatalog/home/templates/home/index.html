@@ -20,29 +20,31 @@
     <section class="top-movie">
       {% if top_movie %}
         <div class="top-movie-card">
-          <div class="top-movie-image">
-            {% if top_movie.poster %}
-            <img src="{{ top_movie.poster.url }}" alt="{{ top_movie.title }}" />
-            {% else %}
-              <div class="placeholder-image">Sem imagem</div>
-            {% endif %}
-          </div>
-          <div class="top-movie-info">
-            <div class="top-movie-title">
-              <h2>Top #1</h2>
-              <p>{{ top_movie.title }}</p>
+          <a href="{% url 'movie_detail' top_movie.id %}" class="movie-link">
+            <div class="top-movie-image">
+              {% if top_movie.poster %}
+              <img src="{{ top_movie.poster.url }}" alt="{{ top_movie.title }}" />
+              {% else %}
+                <div class="placeholder-image">Sem imagem</div>
+              {% endif %}
             </div>
-            <div class="top-movie-stats">
-              <div class="rating-average">
-                <i class="bi bi-star-fill"></i>
-                <span>{{ top_movie.avg_rating|floatformat:1 }}</span>
+            <div class="top-movie-info">
+              <div class="top-movie-title">
+                <h2>Top #1</h2>
+                <p>{{ top_movie.title }}</p>
               </div>
-              <div class="rating-count">
-                <i class="bi bi-chat-dots-fill"></i>
-                <span>{{ top_movie.rating_count }}</span>
+              <div class="top-movie-stats">
+                <div class="rating-average">
+                  <i class="bi bi-star-fill"></i>
+                  <span>{{ top_movie.avg_rating|floatformat:1 }}</span>
+                </div>
+                <div class="rating-count">
+                  <i class="bi bi-chat-dots-fill"></i>
+                  <span>{{ top_movie.rating_count }}</span>
+                </div>
               </div>
             </div>
-          </div>
+          </a>
         </div>
       {% endif %}
     </section>
@@ -58,27 +60,29 @@
                 <div class="row">
                   {% for movie in group %}
                     <div class="col-4">
-                      <div class="movie-card">
-                        {% if movie.poster %}
-                          <img src="{{ movie.poster.url }}"class="d-block w-100" alt="{{ movie.title }}">
-                        {% else %}
-                          <div class="placeholder-image">Sem imagem</div>
-                        {% endif %}
-                      </div>
-                      <div class="movie-details">
-                        <p class="movie-title">{{ movie.title }}</p>
-                        <div class="movie-rating">
-                          {% for i in "12345"|make_list %}
-                            {% if forloop.counter <= movie.stars.full %}
-                              <i class="bi bi-star-fill"></i>
-                            {% elif forloop.counter == movie.stars.full|add:1 and movie.stars.half %}
-                              <i class="bi bi-star-half"></i>
-                            {% else %}
-                              <i class="bi bi-star"></i>
-                            {% endif %}
-                          {% endfor %}
+                      <a href="{% url 'movie_detail' movie.id %}" class="movie-link">
+                        <div class="movie-card">
+                          {% if movie.poster %}
+                            <img src="{{ movie.poster.url }}"class="d-block w-100" alt="{{ movie.title }}">
+                          {% else %}
+                            <div class="placeholder-image">Sem imagem</div>
+                          {% endif %}
                         </div>
-                      </div>
+                        <div class="movie-details">
+                          <p class="movie-title">{{ movie.title }}</p>
+                          <div class="movie-rating">
+                            {% for i in "12345"|make_list %}
+                              {% if forloop.counter <= movie.stars.full %}
+                                <i class="bi bi-star-fill"></i>
+                              {% elif forloop.counter == movie.stars.full|add:1 and movie.stars.half %}
+                                <i class="bi bi-star-half"></i>
+                              {% else %}
+                                <i class="bi bi-star"></i>
+                              {% endif %}
+                            {% endfor %}
+                          </div>
+                        </div>
+                      </a>
                     </div>
                   {% endfor %}
                 </div>
