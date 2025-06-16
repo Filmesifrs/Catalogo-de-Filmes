@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Filmes | Catálogo de Filmes{% endblock %}
+
+{% block style %}
+  <link rel="stylesheet" href="{% static 'css/header.css' %}">
+  <link rel="stylesheet" href="{% static 'css/filme_detalhe.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="container-filmes">
+
+    {% include 'header.html' %}
+
+    <div class="filme-container">
+
+      {% if filme.genres.all|length > 0 or filme.rating %}
+        <div class="filme-cabecalho">
+          {% for genre in filme.genres.all %}
+            <span class="genero-tag">{{ genre.name }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <div class="filme-poster">
+        {% if filme.poster %}
+          <img src="{{ filme.poster.url }}" alt="{{ filme.title }}">
+        {% else %}
+          <div class="placeholder-image">Sem imagem</div>
+        {% endif %}
+      </div>
+
+      <div class="filme-informacoes">
+        <h1>{{ filme.title }}</h1>
+
+        <div class="filme-meta-linha">
+          <p class="filme-meta">
+            {% if filme.release_year %}{{ filme.release_year }}{% endif %}
+          </p>
+
+          <div class="nota-bloco">
+            <div class="nota-destaque">
+              <i class="bi bi-star-fill icon-estrela-suave"></i>
+              <span class="nota-media-suave">
+                {{ nota_media|floatformat:1|default_if_none:"-" }}/5
+              </span>
+            </div>
+          </div>
+        </div> <!-- filme-meta-linha -->
+
+        {% if filme.synopsis %}
+          <p class="filme-sinopse">{{ filme.synopsis }}</p>
+        {% endif %}
+
+        {% if diretor %}
+          <p class="filme-creditos"><strong>Direção:</strong> {{ diretor.name }}</p>
+        {% endif %}
+
+        {% if elenco %}
+          <p class="filme-creditos"><strong>Elenco:</strong>
+            {% for ator in elenco %}
+              {{ ator.name }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </p>
+        {% endif %}
+
+        <div class="botoes">
+          <a href="#" class="btn">
+            <i class="bi bi-chat-dots-fill icon-balao"></i>
+            Avaliar
+          </a>
+
+          <a href="#" class="btn">
+            <i class="bi bi-star-fill icon-estrela"></i>
+            Nota
+          </a>
+        </div>
+
+      </div> <!-- filme-informacoes -->
+    </div> <!-- filme-container -->
+
+    {% include 'footer.html' %}
+  </div> <!-- container-filmes -->
+{% endblock %}

@@ -22,7 +22,9 @@
         <div class="top-movie-card">
           <div class="top-movie-image">
             {% if top_movie.poster %}
-            <img src="{{ top_movie.poster.url }}" alt="{{ top_movie.title }}" />
+              <a href="{% url 'detalhe_filme' top_movie.id %}">
+                <img src="{{ top_movie.poster.url }}" alt="{{ top_movie.title }}" />
+              </a>
             {% else %}
               <div class="placeholder-image">Sem imagem</div>
             {% endif %}
@@ -60,7 +62,9 @@
                     <div class="col-4">
                       <div class="movie-card">
                         {% if movie.poster %}
-                          <img src="{{ movie.poster.url }}"class="d-block w-100" alt="{{ movie.title }}">
+                          <a href="{% url 'detalhe_filme' movie.id %}">
+                            <img src="{{ movie.poster.url }}" class="d-block w-100" alt="{{ movie.title }}">
+                          </a>
                         {% else %}
                           <div class="placeholder-image">Sem imagem</div>
                         {% endif %}

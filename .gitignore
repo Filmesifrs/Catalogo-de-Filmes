@@ -5,6 +5,7 @@ __pycache__/
 
 # Virtual environment
 venv/
+.venv/
 .env
 **/.env
 
@@ -67,3 +68,4 @@ coverage.xml
 *.coveragerc
 
 **/movie_posters/**
+**/people_photos/
