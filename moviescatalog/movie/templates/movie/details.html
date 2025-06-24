@@ -1,0 +1,90 @@
+{% extends 'base.html' %}Add commentMore actions
+{% load static %}
+
+{% block title %}Filmes | Catálogo de Filmes{% endblock %}
+
+{% block style %}
+  <link rel="stylesheet" href="{% static 'css/header.css' %}">
+  <link rel="stylesheet" href="{% static 'css/movie.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="container-filmes">
+
+    {% include 'header.html' %}
+
+    <div class="filme-container">
+
+      {% if genres %}
+        <div class="filme-cabecalho">
+          {% for genre in genres %}
+            <span class="genero-tag">{{ genre }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <div class="filme-poster">
+        {% if poster_url %}
+          <img src="{{ poster_url }}" alt="{{ title }}">
+        {% else %}
+          <div class="placeholder-image">Sem imagem</div>
+        {% endif %}
+      </div>
+
+      <div class="filme-informacoes">
+        <h1>{{ title }}</h1>
+
+        <div class="filme-meta-linha">
+          <p class="filme-meta">
+            {% if release_year %}{{ release_year }}{% endif %}
+          </p>
+
+          <div class="nota-bloco">
+            <div class="nota-destaque">
+              <i class="bi bi-star-fill icon-estrela-suave"></i>
+              <span class="nota-media-suave">
+                {{ avg_rating|floatformat:1|default_if_none:"-" }}/5
+              </span>
+            </div>
+          </div>
+        </div> <!-- filme-meta-linha -->
+
+        {% if synopsis %}
+          <p class="filme-sinopse">{{ synopsis }}</p>
+        {% endif %}
+
+        {% if directors %}
+          <p class="filme-creditos"><strong>Direção:</strong>
+            {% for director in directors %}
+              {{ director }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </p>
+        {% endif %}
+
+        {% if actors %}
+          <p class="filme-creditos"><strong>Elenco:</strong>
+            {% for actor in actors %}
+              {{ actor }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </p>
+        {% endif %}
+
+        <div class="botoes">
+          <a href="#" class="btn">
+            <i class="bi bi-chat-dots-fill icon-balao"></i>
+            Avaliar
+          </a>
+
+          <a href="#" class="btn">
+            <i class="bi bi-star-fill icon-estrela"></i>
+            Nota
+          </a>
+        </div>
+
+      </div> <!-- filme-informacoes -->
+    </div> <!-- filme-container -->
+
+    {% include 'footer.html' %}
+  </div> <!-- container-filmes -->
+{% endblock %}

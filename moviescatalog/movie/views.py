@@ -13,6 +13,7 @@ def movie_detail(request, movie_id):
     # Gêneros
     genres = list(movie.genres.values_list('name', flat=True))
 
+    print(genres)
     # Avaliações
     ratings = movie.ratings.all()
     total_ratings = ratings.count()
@@ -31,4 +32,4 @@ def movie_detail(request, movie_id):
         'poster_url': movie.poster.url if movie.poster else None,
     }
 
-    return render(request, 'movie/index.html', context)
+    return render(request, 'movie/details.html', context)
