@@ -7,6 +7,10 @@
   padding: 0;
 }
 
+input:-internal-autofill-selected{
+  background-color: transparent !important;
+}
+
 /* ============================================================
   ESTRUTURA GERAL
 ============================================================ */

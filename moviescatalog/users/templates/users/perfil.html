@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Perfil - {{ usuario.username }}{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/header.css' %}">
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+<link rel="stylesheet" href="{% static 'css/perfil.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="perfil-container">
+  {% include 'header.html' %}
+
+  <div class="perfil-content">
+    <form method="post" id="perfil-form">
+      {% csrf_token %}
+
+      <div class="perfil-header">
+        <h1 class="first-name">{{ usuario.first_name }}</h1>
+        <h4 class="username">@{{ usuario.username }}</h4>
+      </div>
+
+      <!-- Blocos de estatísticas -->
+      <div class="stats-section">
+        <div class="stat-card">
+          <div class="stat-label">Avaliações</div>
+          <div class="stat-number">{{ total_ratings }}</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Gênero + assistido</div>
+          <div class="stat-number">{{ genero_mais_assistido }}</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Melhor avaliado</div>
+          <div class="stat-number">{{ melhor_filme }}</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Ator + assistido</div>
+          <div class="stat-number">{{ ator_mais_assistido }}</div>
+        </div>
+      </div>
+
+      <div class="info-section">
+
+        <div class="info-item">
+          <i class="bi bi-person-fill"></i>
+          {% with nome_completo=usuario.first_name|add:" "|add:usuario.last_name %}
+            <span id="nome-display">{{ nome_completo }}</span>
+            <input type="text" name="nome" id="nome-input" class="input-edit" value="{{ nome_completo }}" style="display: none;">
+          {% endwith %}
+        </div>
+
+        <div class="info-item">
+          <i class="bi bi-envelope-fill"></i>
+          <span id="email-display">{{ usuario.email }}</span>
+          <input type="email" name="email" id="email-input" class="input-edit" value="{{ usuario.email }}" style="display: none;">
+        </div>
+
+        <div class="info-item">
+          <i class="bi bi-at"></i>
+          <span id="username-display">{{ usuario.username }}</span>
+          <input type="text" name="username" id="username-input" class="input-edit" value="{{ usuario.username }}" style="display: none;">
+        </div>
+
+      </div>
+
+      <div class="action-section">
+        <button type="button" id="editar-btn" class="btn btn-edit-profile" onclick="habilitarEdicao()">Editar meus dados</button>
+        <button type="submit" id="salvar-btn" class="btn btn-edit-profile" style="display:none;">Salvar</button>
+      </div>
+    </form>
+
+    <div class="logout-section" style="text-align: right; margin-top: 20px;">
+      <form action="{% url 'users:logout' %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-logout">
+          <i class="bi bi-box-arrow-right"></i> Sair
+        </button>
+      </form>
+    </div>
+  </div>
+
+  {% include "footer.html" %}
+</div>
+
+<script>
+  function habilitarEdicao() {
+    document.getElementById('nome-display').style.display = 'none';
+    document.getElementById('nome-input').style.display = 'inline-block';
+    document.getElementById('email-display').style.display = 'none';
+    document.getElementById('email-input').style.display = 'inline-block';
+    document.getElementById('editar-btn').style.display = 'none';
+    document.getElementById('salvar-btn').style.display = 'block';
+  }
+
+  const logoutBtn = document.querySelector('form[action$="logout/"] button');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', function (e) {
+      if (!confirm("Deseja realmente sair?")) {
+        e.preventDefault();
+      }
+    });
+  }
+
+</script>
+{% endblock %}

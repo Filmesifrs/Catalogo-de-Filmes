@@ -1,0 +1,158 @@
+/* ============================================================
+  ESTRUTURA GERAL
+============================================================ */
+.avaliacoes-container {
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+.avaliacoes-content {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+/* ============================================================
+  GRID DE AVALIAÇÕES
+============================================================ */
+.avaliacoes-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.avaliacao-card {
+  background-color: #1D1C37;
+  padding: 15px;
+  display: flex;
+  gap: 15px;
+  transition: transform 0.2s ease;
+  border-radius: 5px;
+}
+
+.avaliacao-card:hover {
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+  POSTER DO FILME
+============================================================ */
+.movie-poster {
+  flex-shrink: 0;
+  width: 80px;
+  height: 120px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.poster-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.poster-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #2a2a3e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  font-size: 24px;
+}
+
+/* ============================================================
+  INFORMAÇÕES DO FILME
+============================================================ */
+.movie-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.movie-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.rating-display {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rating-number {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.review-text {
+  font-size: 14px;
+  color: #9ca3af;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.rating-date {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: auto;
+}
+
+/* ============================================================
+  ESTADO VAZIO (SEM AVALIAÇÕES)
+============================================================ */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-icon {
+  font-size: 48px;
+  color: #4b5563;
+  margin-bottom: 20px;
+}
+
+.empty-state h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.empty-state p {
+  color: #9ca3af;
+  margin-bottom: 30px;
+}
+
+/* ============================================================
+  BOTÕES
+============================================================ */
+.btn-start-rating {
+  display: inline-block;
+  background: linear-gradient(1deg, #7e3ff2, #5a1ee0);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.btn-start-rating:hover {
+  background: linear-gradient(1deg, #7e3ff2, #5a1ee0);
+  color: white;
+  text-decoration: none;
+}
