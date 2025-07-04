@@ -137,7 +137,7 @@ python manage.py import_test_data
 ### 9. Adicionar as Imagens dos Filmes
 
 Baixe o arquivo `.zip` com as imagens neste link:  
-https://drive.google.com/file/d/1lUu3LGbkNWSu7hxyg57E9_0jhMqRAgYv/view?usp=drive_link
+https://drive.google.com/file/d/1cY3wvEManqdWsxairHJGG4u8kPTzr1o0/view?usp=sharing
 
 Depois, extraia o conteúdo na seguinte pasta do projeto:
 

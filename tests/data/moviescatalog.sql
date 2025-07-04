@@ -2,80 +2,80 @@ INSERT INTO genre_genre (name) VALUES('Ficção Científica'),('Fantasia'),('Dra
 
 INSERT INTO person_person (name, bio, birth_date, photo, role) VALUES
 
-('Keanu Reeves','Ator canadense que se tornou ícone da ação e ficção científica ao interpretar Neo em Matrix; também protagonizou a franquia John Wick e o clássico Velocidade Máxima.', '1964-09-02', 'keanu.jpg', 'actor'),
-('Lana Wachowski','Roteirista e diretora americana, co-criadora da revolucionária trilogia Matrix; conhecida por sua abordagem filosófica, narrativas transgressoras e estética visual única.', '1965-06-21', 'lana.jpg', 'director'),
+('Keanu Reeves','Ator canadense que se tornou ícone da ação e ficção científica ao interpretar Neo em Matrix; também protagonizou a franquia John Wick e o clássico Velocidade Máxima.', '1964-09-02', 'people_photos/keanu.jpg', 'Ator'),
+('Lana Wachowski','Roteirista e diretora americana, co-criadora da revolucionária trilogia Matrix; conhecida por sua abordagem filosófica, narrativas transgressoras e estética visual única.', '1965-06-21', 'people_photos/lana.jpg', 'Diretor'),
 
-('Elijah Wood', 'Ator americano que alcançou fama internacional como Frodo Baggins na trilogia O Senhor dos Anéis; desde então atuou em filmes independentes e séries de TV, explorando personagens complexos.', '1981-01-28', 'elijah.jpg', 'actor'),
-('Peter Jackson', 'Diretor neozelandês premiado com vários Oscars por adaptar a trilogia O Senhor dos Anéis; mais tarde dirigiu King Kong (2005) e O Hobbit.', '1961-10-31', 'peter.jpg', 'director'),
+('Elijah Wood', 'Ator americano que alcançou fama internacional como Frodo Baggins na trilogia O Senhor dos Anéis; desde então atuou em filmes independentes e séries de TV, explorando personagens complexos.', '1981-01-28', 'people_photos/elijah.jpg', 'Ator'),
+('Peter Jackson', 'Diretor neozelandês premiado com vários Oscars por adaptar a trilogia O Senhor dos Anéis; mais tarde dirigiu King Kong (2005) e O Hobbit.', '1961-10-31', 'people_photos/peter.jpg', 'Diretor'),
 
 
-('Edward Norton', 'Ator versátil indicado ao Oscar por suas performances complexas, como em Clube da Luta e A Outra História Americana; também dirige e produz projetos autorais.', '1969-08-18', 'norton.jpg', 'actor'),
-('David Fincher', 'Diretor americano especialista em thrillers psicológicos, notório por seu estilo sombrio em Clube da Luta, Seven e Garota Exemplar.', '1962-08-28', 'fincher.jpg', 'director'),
-('Brad Pitt', 'Ator e produtor americano que ganhou destaque como Tyler Durden em Clube da Luta; também premiado por Bastardos Inglórios e 12 Anos de Escravidão.', '1963-12-18', 'bradpitt.jpg', 'actor'),
+('Edward Norton', 'Ator versátil indicado ao Oscar por suas performances complexas, como em Clube da Luta e A Outra História Americana; também dirige e produz projetos autorais.', '1969-08-18', 'people_photos/norton.jpg', 'Ator'),
+('David Fincher', 'Diretor americano especialista em thrillers psicológicos, notório por seu estilo sombrio em Clube da Luta, Seven e Garota Exemplar.', '1962-08-28', 'people_photos/fincher.jpg', 'Diretor'),
+('Brad Pitt', 'Ator e produtor americano que ganhou destaque como Tyler Durden em Clube da Luta; também premiado por Bastardos Inglórios e 12 Anos de Escravidão.', '1963-12-18', 'people_photos/bradpitt.jpg', 'Ator'),
 
-('Leonardo DiCaprio', 'Ator vencedor do Oscar por O Regresso; sua versatilidade ficou evidente em Titanic, A Origem e O Lobo de Wall Street.', '1974-11-11', 'leo.jpg', 'actor'),
-('Christopher Nolan', 'Diretor britânico renomado por roteiros complexos e narrativas não-lineares em A Origem, Interestelar e na trilogia Batman.', '1970-07-30', 'nolan.jpg', 'director'),
-('Jessica Chastain', 'Atriz indicada ao Oscar, participou de A Origem; conhecida por papéis fortes em Histórias Cruzadas e Miss Sloane.', '1977-03-24', 'jessica_chastain.jpg', 'actor'),
+('Leonardo DiCaprio', 'Ator vencedor do Oscar por O Regresso; sua versatilidade ficou evidente em Titanic, A Origem e O Lobo de Wall Street.', '1974-11-11', 'people_photos/leo.jpg', 'Ator'),
+('Christopher Nolan', 'Diretor britânico renomado por roteiros complexos e narrativas não-lineares em A Origem, Interestelar e na trilogia Batman.', '1970-07-30', 'people_photos/nolan.jpg', 'Diretor'),
+('Jessica Chastain', 'Atriz indicada ao Oscar, participou de A Origem; conhecida por papéis fortes em Histórias Cruzadas e Miss Sloane.', '1977-03-24', 'people_photos/jessica_chastain.jpg', 'Ator'),
 
-('Kate Winslet', 'Atriz britânica premiada por Titanic; construiu carreira sólida em dramas de época e contemporâneos, como Brilho Eterno de uma Mente sem Lembranças.', '1975-10-05', 'kate.jpg', 'actor'),
-('James Cameron', 'Diretor visionário de Titanic e Avatar; referência em tecnologia de efeitos especiais e narrativas épicas de aventura.', '1954-08-16', 'cameron.jpg', 'director'),
+('Kate Winslet', 'Atriz britânica premiada por Titanic; construiu carreira sólida em dramas de época e contemporâneos, como Brilho Eterno de uma Mente sem Lembranças.', '1975-10-05', 'people_photos/kate.jpg', 'Ator'),
+('James Cameron', 'Diretor visionário de Titanic e Avatar; referência em tecnologia de efeitos especiais e narrativas épicas de aventura.', '1954-08-16', 'people_photos/cameron.jpg', 'Diretor'),
 
-('Sam Neill', 'Ator neozelandês que se destacou como Dr. Alan Grant em Jurassic Park; possui ampla carreira em TV e cinema inglês e neozelandês.', '1947-09-14', 'sam.jpg', 'actor'),
-('Steven Spielberg', 'Um dos diretores mais influentes de Hollywood, criador de Jurassic Park, E.T. e Indiana Jones; conhecido por contar histórias que emocionam gerações.', '1946-12-18', 'spielberg.jpg', 'director'),
-('Morgan Freeman', 'Ator veterano e voz marcante, vencedor do Oscar por Menina de Ouro; trabalho icônico em Um Sonho de Liberdade e Seven.', '1937-06-01', 'freeman.jpg', 'actor'),
+('Sam Neill', 'Ator neozelandês que se destacou como Dr. Alan Grant em Jurassic Park; possui ampla carreira em TV e cinema inglês e neozelandês.', '1947-09-14', 'people_photos/sam.jpg', 'Ator'),
+('Steven Spielberg', 'Um dos diretores mais influentes de Hollywood, criador de Jurassic Park, E.T. e Indiana Jones; conhecido por contar histórias que emocionam gerações.', '1946-12-18', 'people_photos/spielberg.jpg', 'Diretor'),
+('Morgan Freeman', 'Ator veterano e voz marcante, vencedor do Oscar por Menina de Ouro; trabalho icônico em Um Sonho de Liberdade e Seven.', '1937-06-01', 'people_photos/freeman.jpg', 'Ator'),
 
-('Emma Stone', 'Atriz vencedora do Oscar por La La Land; elogiada por sua versatilidade em comédias e dramas, como Zumbilândia e Birdman.', '1988-11-06', 'emma.jpg', 'actor'),
-('Damien Chazelle', 'Diretor americano mais jovem a vencer Oscar, pelas trilhas musicais e ritmo contagiante de La La Land e Whiplash.', '1985-01-19', 'damien.jpg', 'director'),
+('Emma Stone', 'Atriz vencedora do Oscar por La La Land; elogiada por sua versatilidade em comédias e dramas, como Zumbilândia e Birdman.', '1988-11-06', 'people_photos/emma.jpg', 'Ator'),
+('Damien Chazelle', 'Diretor americano mais jovem a vencer Oscar, pelas trilhas musicais e ritmo contagiante de La La Land e Whiplash.', '1985-01-19', 'people_photos/damien.jpg', 'Diretor'),
 
-('John Travolta', 'Ator que revolucionou sua carreira ao interpretar Vincent Vega em Pulp Fiction; ícone cultural desde os anos 70.', '1954-02-18', 'travolta.jpg', 'actor'),
-('Quentin Tarantino', 'Diretor e roteirista cultuado por diálogos marcantes e estética violenta em Pulp Fiction, Django Livre e Kill Bill.', '1963-03-27', 'tarantino.jpg', 'director'),
+('John Travolta', 'Ator que revolucionou sua carreira ao interpretar Vincent Vega em Pulp Fiction; ícone cultural desde os anos 70.', '1954-02-18', 'people_photos/travolta.jpg', 'Ator'),
+('Quentin Tarantino', 'Diretor e roteirista cultuado por diálogos marcantes e estética violenta em Pulp Fiction, Django Livre e Kill Bill.', '1963-03-27', 'people_photos/tarantino.jpg', 'Diretor'),
 
-('Jamie Foxx', 'Ator e músico premiado por seu retrato intenso em Django Livre; também reconhecido em Ray e Baby Driver.', '1967-12-13', 'jamie.jpg', 'actor'),
+('Jamie Foxx', 'Ator e músico premiado por seu retrato intenso em Django Livre; também reconhecido em Ray e Baby Driver.', '1967-12-13', 'people_photos/jamie.jpg', 'Ator'),
 
-('Robert De Niro', 'Lendário ator americano de Taxi Driver a O Irlandês; múltiplas vezes indicado ao Oscar por performances em dramas de máfia.', '1943-08-17', 'deniro.jpg', 'actor'),
-('Martin Scorsese', 'Diretor icônico de filmes de máfia e dramas, como Os Bons Companheiros, Taxi Driver e O Irlandês.', '1942-11-17', 'scorsese.jpg', 'director'),
+('Robert De Niro', 'Lendário ator americano de Taxi Driver a O Irlandês; múltiplas vezes indicado ao Oscar por performances em dramas de máfia.', '1943-08-17', 'people_photos/deniro.jpg', 'Ator'),
+('Martin Scorsese', 'Diretor icônico de filmes de máfia e dramas, como Os Bons Companheiros, Taxi Driver e O Irlandês.', '1942-11-17', 'people_photos/scorsese.jpg', 'Diretor'),
 
-('Tom Hanks', 'Ator querido, vencedor de dois Oscars por Philadelphia e Forrest Gump; conhecido por retratar personagens empáticos e relacionáveis.', '1956-07-09', 'hanks.jpg', 'actor'),
-('Robert Zemeckis', 'Diretor de clássicos como De Volta para o Futuro e Forrest Gump; pioneiro em técnicas de efeitos visuais.', '1951-05-14', 'zemeckis.jpg', 'director'),
+('Tom Hanks', 'Ator querido, vencedor de dois Oscars por Philadelphia e Forrest Gump; conhecido por retratar personagens empáticos e relacionáveis.', '1956-07-09', 'people_photos/hanks.jpg', 'Ator'),
+('Robert Zemeckis', 'Diretor de clássicos como De Volta para o Futuro e Forrest Gump; pioneiro em técnicas de efeitos visuais.', '1951-05-14', 'people_photos/zemeckis.jpg', 'Diretor'),
 
-('Russell Crowe', 'Ator australiano vencedor do Oscar por Gladiador; depois estrelou Cinderella Man e Uma Mente Brilhante.', '1964-04-07', 'crowe.jpg', 'actor'),
-('Ridley Scott', 'Diretor britânico responsável por épicos históricos como Gladiador e ficção científica como Blade Runner.', '1937-11-30', 'ridley.jpg', 'director'),
+('Russell Crowe', 'Ator australiano vencedor do Oscar por Gladiador; depois estrelou Cinderella Man e Uma Mente Brilhante.', '1964-04-07', 'people_photos/crowe.jpg', 'Ator'),
+('Ridley Scott', 'Diretor britânico responsável por épicos históricos como Gladiador e ficção científica como Blade Runner.', '1937-11-30', 'people_photos/ridley.jpg', 'Diretor'),
 
-('Anne Hathaway', 'Atriz consagrada, passou de comédias como O Diário da Princesa a dramas intensos em Os Miseráveis e O Diabo Veste Prada.', '1982-11-12', 'anne.jpg', 'actor'),
-('David Frankel', 'Diretor americano de comédias dramáticas, conhecido por O Diabo Veste Prada e séries como Homens de Terno.', '1959-04-02', 'frankel.jpg', 'director'),
+('Anne Hathaway', 'Atriz consagrada, passou de comédias como O Diário da Princesa a dramas intensos em Os Miseráveis e O Diabo Veste Prada.', '1982-11-12', 'people_photos/anne.jpg', 'Ator'),
+('David Frankel', 'Diretor americano de comédias dramáticas, conhecido por O Diabo Veste Prada e séries como Homens de Terno.', '1959-04-02', 'people_photos/frankel.jpg', 'Diretor'),
 
-('Jared Gilman', 'Ator mirim que conquistou críticas positivas como protagonista de Moonrise Kingdom, sob a direção de Wes Anderson.', '1998-12-28', 'jared.jpg', 'actor'),
-('Wes Anderson', 'Diretor com estilo visual simétrico e paleta de cores única em Moonrise Kingdom e O Grande Hotel Budapeste.', '1969-05-01', 'wes.jpg', 'director'),
+('Jared Gilman', 'Ator mirim que conquistou críticas positivas como protagonista de Moonrise Kingdom, sob a direção de Wes Anderson.', '1998-12-28', 'people_photos/jared.jpg', 'Ator'),
+('Wes Anderson', 'Diretor com estilo visual simétrico e paleta de cores única em Moonrise Kingdom e O Grande Hotel Budapeste.', '1969-05-01', 'people_photos/wes.jpg', 'Diretor'),
 
-('Jennifer Lawrence', 'Atriz vencedora do Oscar por O Lado Bom da Vida; ficou mundialmente famosa como Katniss Everdeen em Jogos Vorazes.', '1990-08-15', 'jlaw.jpg', 'actor'),
-('Gary Ross', 'Diretor e roteirista de Jogos Vorazes e Seabiscuit; combina ação emocionante com narrativas humanas.', '1956-11-03', 'gary.jpg', 'director'),
+('Jennifer Lawrence', 'Atriz vencedora do Oscar por O Lado Bom da Vida; ficou mundialmente famosa como Katniss Everdeen em Jogos Vorazes.', '1990-08-15', 'people_photos/jlaw.jpg', 'Ator'),
+('Gary Ross', 'Diretor e roteirista de Jogos Vorazes e Seabiscuit; combina ação emocionante com narrativas humanas.', '1956-11-03', 'people_photos/gary.jpg', 'Diretor'),
 
-('Henry Thomas', 'Ator que emocionou plateias como Elliott em E.T.; continuou atuando em séries de TV e filmes de drama.', '1971-09-09', 'henry.jpg', 'actor'),
+('Henry Thomas', 'Ator que emocionou plateias como Elliott em E.T.; continuou atuando em séries de TV e filmes de drama.', '1971-09-09', 'people_photos/henry.jpg', 'Ator'),
 
-('Ralph Fiennes', 'Ator britânico premiado, estrelou O Grande Hotel Budapeste e interpreta o Conde em Harry Potter.', '1962-12-22', 'fiennes.jpg', 'actor'),
+('Ralph Fiennes', 'Ator britânico premiado, estrelou O Grande Hotel Budapeste e interpreta o Conde em Harry Potter.', '1962-12-22', 'people_photos/fiennes.jpg', 'Ator'),
 
-('Scarlett Johansson', 'Atriz versátil, de comédias românticas a dramas indie; elogiada por Lost in Translation e por viver a Viúva Negra no MCU.', '1984-11-22', 'scarlett.jpg', 'actor'),
-('Sofia Coppola', 'Diretora e roteirista vencedora do Oscar, criadora de Lost in Translation e Maria Antonieta.', '1971-05-14', 'sofia.jpg', 'director'),
-('Bill Murray', 'Ator comediante e dramático, destaque em Feitiço do Tempo e Lost in Translation.', '1950-09-21', 'bill_murray.jpg', 'actor'),
+('Scarlett Johansson', 'Atriz versátil, de comédias românticas a dramas indie; elogiada por Lost in Translation e por viver a Viúva Negra no MCU.', '1984-11-22', 'people_photos/scarlett.jpg', 'Ator'),
+('Sofia Coppola', 'Diretora e roteirista vencedora do Oscar, criadora de Lost in Translation e Maria Antonieta.', '1971-05-14', 'people_photos/sofia.jpg', 'Diretor'),
+('Bill Murray', 'Ator comediante e dramático, destaque em Feitiço do Tempo e Lost in Translation.', '1950-09-21', 'people_photos/bill_murray.jpg', 'Ator'),
 
-('Sam Worthington', 'Ator australiano que ganhou projeção global como Jake Sully em Avatar; continuou em produções de ação e ficção.', '1976-08-02', 'samworth.jpg', 'actor'),
+('Sam Worthington', 'Ator australiano que ganhou projeção global como Jake Sully em Avatar; continuou em produções de ação e ficção.', '1976-08-02', 'people_photos/samworth.jpg', 'Ator'),
 
-('Denzel Washington', 'Ator e diretor premiado, destaque em Fences, Dia de Treinamento e Malcolm X; conhecido por presença intensa.', '1954-12-28', 'denzel.jpg', 'actor'),
-('Viola Davis', 'Atriz premiada com Oscar, aclamada por sua interpretação em Fences e A Voz Suprema do Blues.', '1965-08-11', 'viola.jpg', 'actor'),
+('Denzel Washington', 'Ator e diretor premiado, destaque em Fences, Dia de Treinamento e Malcolm X; conhecido por presença intensa.', '1954-12-28', 'people_photos/denzel.jpg', 'Ator'),
+('Viola Davis', 'Atriz premiada com Oscar, aclamada por sua interpretação em Fences e A Voz Suprema do Blues.', '1965-08-11', 'people_photos/viola.jpg', 'Ator'),
 
-('Matt Damon', 'Ator vencedor do Oscar, estreou com destaque em O Resgate do Soldado Ryan e protagonizou a franquia Bourne.', '1970-10-08', 'damon.jpg', 'actor'),
-('Steven Spielberg', 'Já listado em Jurassic Park; também dirigiu O Resgate do Soldado Ryan.', '1946-12-18', 'spielberg.jpg', 'director'),
+('Matt Damon', 'Ator vencedor do Oscar, estreou com destaque em O Resgate do Soldado Ryan e protagonizou a franquia Bourne.', '1970-10-08', 'people_photos/damon.jpg', 'Ator'),
+('Steven Spielberg', 'Já listado em Jurassic Park; também dirigiu O Resgate do Soldado Ryan.', '1946-12-18', 'people_photos/spielberg.jpg', 'Diretor'),
 
-('Jodie Foster', 'Atriz duas vezes vencedora do Oscar, imersa em papéis intensos como em O Silêncio dos Inocentes.', '1962-11-19', 'jodie.jpg', 'actor'),
-('Jonathan Demme','Diretor premiado por O Silêncio dos Inocentes e Stop Making Sense, mistura tensão e humor.', '1944-02-22', 'demme.jpg', 'director'),
+('Jodie Foster', 'Atriz duas vezes vencedora do Oscar, imersa em papéis intensos como em O Silêncio dos Inocentes.', '1962-11-19', 'people_photos/jodie.jpg', 'Ator'),
+('Jonathan Demme','Diretor premiado por O Silêncio dos Inocentes e Stop Making Sense, mistura tensão e humor.', '1944-02-22', 'people_photos/demme.jpg', 'Diretor'),
 
-('Michael Keaton', 'Ator que ressurgiu criticamente com Birdman, após ser ícone dos filmes de Batman nos anos 90.', '1951-09-05', 'keaton.jpg', 'actor'),
-('Alejandro G. Iñárritu','Diretor mexicano vencedor de Oscars por Birdman e O Regresso, especializado em narrativas humanistas.', '1963-08-15', 'inarritu.jpg', 'director'),
+('Michael Keaton', 'Ator que ressurgiu criticamente com Birdman, após ser ícone dos filmes de Batman nos anos 90.', '1951-09-05', 'people_photos/keaton.jpg', 'Ator'),
+('Alejandro G. Iñárritu','Diretor mexicano vencedor de Oscars por Birdman e O Regresso, especializado em narrativas humanistas.', '1963-08-15', 'people_photos/inarritu.jpg', 'Diretor'),
 
-('Jesse Eisenberg', 'Ator que imortalizou Mark Zuckerberg em A Rede Social; também atuou em Zumbilândia e Batman v Superman.', '1983-10-05', 'eisenberg.jpg', 'actor'),
+('Jesse Eisenberg', 'Ator que imortalizou Mark Zuckerberg em A Rede Social; também atuou em Zumbilândia e Batman v Superman.', '1983-10-05', 'people_photos/eisenberg.jpg', 'Ator'),
 
-('Joaquin Phoenix', 'Ator premiado por Coringa, antes elogiado por Ela e O Mestre, conhecido por mergulhar em personagens complexos.', '1974-10-28', 'phoenix.jpg', 'actor'),
-('Spike Jonze', 'Diretor e roteirista cultuado por Ela e Quero Ser John Malkovich; explora identidade e tecnologia.','1969-10-22', 'spike.jpg', 'director');
+('Joaquin Phoenix', 'Ator premiado por Coringa, antes elogiado por Ela e O Mestre, conhecido por mergulhar em personagens complexos.', '1974-10-28', 'people_photos/phoenix.jpg', 'Ator'),
+('Spike Jonze', 'Diretor e roteirista cultuado por Ela e Quero Ser John Malkovich; explora identidade e tecnologia.','1969-10-22', 'people_photos/spike.jpg', 'Diretor');
 
 
 INSERT INTO movie_movie (title, release_year, synopsis, created_at, poster, trailer_url) VALUES
