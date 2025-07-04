@@ -17,6 +17,7 @@ def movie_detail(request, movie_id):
 
   # Gêneros
   genres = list(movie.genres.values_list('name', flat=True))
+  edit_mode = request.GET.get("edit") == "true"
 
   # Avaliações
   ratings = Rating.objects.filter(movie=movie).order_by('-created_at')
@@ -24,7 +25,7 @@ def movie_detail(request, movie_id):
   avg_rating = ratings.aggregate(avg=Avg('rating'))['avg'] or 0
   avg_rating = round(avg_rating, 1)
 
-  # Preparar dados das avaliações para o template
+  # Prepara avaliações com estrelas
   ratings_data = []
   for rating in ratings:
     ratings_data.append({
@@ -36,9 +37,10 @@ def movie_detail(request, movie_id):
     })
 
   watched = Watched.objects.filter(user=request.user, movie=movie).exists()
+  user_rating = Rating.objects.filter(movie=movie, user=request.user).first()
 
   context = {
-    'movie_id': movie_id,
+    'movie_id': movie.id,
     'title': movie.title,
     'genres': genres,
     'release_year': movie.release_year,
@@ -50,6 +52,8 @@ def movie_detail(request, movie_id):
     'ratings': ratings_data,
     'poster_url': movie.poster.url if movie.poster else None,
     'watched': watched,
+    'edit': edit_mode,
+    'user_rating': user_rating,
   }
 
   return render(request, 'movie/details.html', context)

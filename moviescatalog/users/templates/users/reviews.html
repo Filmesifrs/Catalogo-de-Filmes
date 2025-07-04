@@ -53,10 +53,18 @@
             <p class="review-text">"{{ avaliacao.review|truncatewords:20 }}"</p>
           {% endif %}
 
-          <div class="rating-date">
-            <i class="bi bi-calendar"></i>
-            {{ avaliacao.created_at|date:"d/m/Y" }}
+          <div class="rating-footer">
+
+            <div class="rating-date">
+              <i class="bi bi-calendar"></i>
+              {{ avaliacao.created_at|date:"d/m/Y" }}
+            </div>
+
+            <a class="btn btn-edit-rating" href="{% url 'movie_detail' avaliacao.movie.id %}?edit=true" class="btn btn-sm">
+              <i class="bi bi-pencil"></i>
+            </a>
           </div>
+
         </div>
       </div>
       {% endfor %}
