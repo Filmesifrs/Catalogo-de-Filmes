@@ -12,8 +12,11 @@ O **Catálogo de Filmes** é um aplicativo web desenvolvido em **Python com Djan
 ✅ Consultar resumos e recomendações  
 
 ## 🛠 Tecnologias Utilizadas
-- **Python**  
-- **Django**  
+- **Python 3**  
+- **Django 4**  
+- **MySQL**  
+- **Bootstrap 5**  
+- **HTML/CSS/JavaScript**
 
 ## 📝 Instruções para Rodar o Projeto
 
