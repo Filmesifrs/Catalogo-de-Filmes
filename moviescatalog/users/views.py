@@ -111,6 +111,12 @@ def register_view(request):
     form = CustomRegisterForm(request.POST)
     if form.is_valid():
       user = form.save()
+      full_name = form.cleaned_data.get('full_name')
+      if full_name:
+        partes = full_name.strip().split(' ', 1)
+        user.first_name = partes[0]
+        user.last_name = partes[1] if len(partes) > 1 else ''
+        user.save()
       login(request, user)
       return redirect('/')
     else:

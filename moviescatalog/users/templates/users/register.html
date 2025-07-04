@@ -14,6 +14,19 @@
       {% csrf_token %}
 
       <div class="input-group">
+        <i class="bi bi-person-badge"></i>
+        {{ form.full_name }}
+      </div>
+
+      {% if form.full_name.errors %}
+        <div class="field-error">
+          {% for error in form.full_name.errors %}
+            <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <div class="input-group">
         <i class="bi bi-person"></i>
         {{ form.username }}
       </div>
