@@ -5,7 +5,8 @@ __pycache__/
 
 # Virtual environment
 venv/
-.env/
+.env
+**/.env
 
 # Django-specific
 *.log
@@ -64,3 +65,5 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *.coveragerc
+
+**/movie_posters/**

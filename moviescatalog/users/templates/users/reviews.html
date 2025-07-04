@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Minhas Avaliações{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/header.css' %}">
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+<link rel="stylesheet" href="{% static 'css/movie.css' %}">
+<link rel="stylesheet" href="{% static 'css/avaliacoes.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="avaliacoes-container">
+  {% include 'header.html' %}
+
+  <div class="avaliacoes-content">
+    <h2 class="page-title">Minhas Avaliações</h2>
+
+    {% if avaliacoes %}
+    <div class="avaliacoes-grid">
+      {% for avaliacao in avaliacoes %}
+      <div class="avaliacao-card">
+        <div class="movie-poster">
+          {% if avaliacao.movie.poster %}
+          <img src="{{ avaliacao.movie.poster.url }}" alt="{{ avaliacao.movie.title }}" class="poster-image">
+          {% else %}
+          <div class="poster-placeholder">
+            <i class="bi bi-film"></i>
+          </div>
+          {% endif %}
+        </div>
+
+        <div class="movie-info">
+          <h4 class="movie-title">{{ avaliacao.movie.title }}</h4>
+
+          <div class="rating-display">
+            <div class="stars">
+              {% for i in "12345"|make_list %}
+                {% if forloop.counter <= avaliacao.full_stars %}
+                  <i class="bi bi-star-fill"></i>
+                {% elif forloop.counter == avaliacao.full_stars|add:"1" and avaliacao.half_star %}
+                  <i class="bi bi-star-half"></i>
+                {% else %}
+                  <i class="bi bi-star"></i>
+                {% endif %}
+              {% endfor %}
+            </div>
+            <span class="rating-number">{{ avaliacao.rating }}/10</span>
+          </div>
+
+          {% if avaliacao.review %}
+            <p class="review-text">"{{ avaliacao.review|truncatewords:20 }}"</p>
+          {% endif %}
+
+          <div class="rating-footer">
+
+            <div class="rating-date">
+              <i class="bi bi-calendar"></i>
+              {{ avaliacao.created_at|date:"d/m/Y" }}
+            </div>
+
+            <a class="btn btn-edit-rating" href="{% url 'movie_detail' avaliacao.movie.id %}?edit=true" class="btn btn-sm">
+              <i class="bi bi-pencil"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state">
+      <i class="bi bi-chat-dots empty-icon"></i>
+      <h3>Nenhuma avaliação ainda</h3>
+      <p>Você ainda não avaliou nenhum filme. Que tal começar agora?</p>
+      <a href="{% url 'home:home' %}" class="btn-start-rating">
+        Explorar Filmes
+      </a>
+    </div>
+    {% endif %}
+  </div>
+
+  {% include "footer.html" %}
+</div>
+{% endblock %}

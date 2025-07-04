@@ -1,0 +1,225 @@
+/* ===================================
+  Movie List - Container
+=================================== */
+
+.div-search-title{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.movie-list {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0.5rem;
+  flex-direction: column;
+  padding-bottom: 80px;
+}
+
+/* ===================================
+  Movie Card - Estrutura
+=================================== */
+
+.movie-card {
+  background: #1a1a2e;
+  border-radius: 0.75rem;
+  display: flex;
+  padding: 0.5rem;
+  gap: 1rem;
+  flex-direction: row;
+}
+
+/* ===================================
+  Movie Card - Poster
+=================================== */
+
+.movie-poster img {
+  width: 100px;
+  min-height: 65%;
+  border-radius: 0.5rem;
+}
+
+/* ===================================
+  Movie Card - Título e Meta
+=================================== */
+
+.movie-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.movie-meta {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin: 0px;
+}
+
+/* ===================================
+  Movie Card - Tags
+=================================== */
+
+.movie-tags .tag {
+  background: transparent;
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+  border: 1px solid white;
+}
+
+/* ===================================
+  Movie Card - Sinopse
+=================================== */
+
+.movie-synopsis {
+  margin: 0.5rem 0;
+}
+
+/* ===================================
+  Movie List - Sem Resultados
+=================================== */
+
+.no-results {
+  padding: 10px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+/* ===================================
+  Botão "Ver Mais"
+=================================== */
+
+.btn-more {
+  background: #5823B9;
+  color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.movie-poster {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+}
+/* ===================================
+  Movie List - Container
+=================================== */
+
+.movie-list {
+  display: flex;
+  gap: 1rem;
+  margin: 0.5rem;
+  flex-direction: column;
+}
+
+/* ===================================
+  Movie Card - Estrutura
+=================================== */
+
+.movie-card {
+  background: #1a1a2e;
+  border-radius: 0.75rem;
+  display: flex;
+  padding: 0.5rem;
+  gap: 1rem;
+  flex-direction: row;
+}
+
+/* ===================================
+  Movie Card - Poster
+=================================== */
+
+.movie-poster img {
+  width: 100px;
+  min-height: 65%;
+  border-radius: 0.5rem;
+}
+
+/* ===================================
+  Movie Card - Título e Meta
+=================================== */
+
+.movie-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.movie-meta {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin: 0px;
+}
+
+/* ===================================
+  Movie Card - Tags
+=================================== */
+
+.movie-tags .tag {
+  background: transparent;
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+  border: 1px solid white;
+}
+
+/* ===================================
+  Movie Card - Sinopse
+=================================== */
+
+.movie-synopsis {
+  margin: 0.5rem 0;
+}
+
+/* ===================================
+  Movie List - Sem Resultados
+=================================== */
+
+.no-results {
+  padding: 10px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+/* ===================================
+  Botão "Ver Mais"
+=================================== */
+
+.btn-more {
+  background: #5823B9;
+  color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.movie-poster {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+}

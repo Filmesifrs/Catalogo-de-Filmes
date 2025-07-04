@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Filmes | Catálogo de Filmes{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/header.css' %}">
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+<link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div class="container-filmes">
+  {% block header %}
+    {% include 'header.html' %}
+  {% endblock %}
+
+  <!-- Conteúdo principal -->
+  <main class="main-content">
+    <section class="top-movie">
+      {% if top_movie %}
+        <div class="top-movie-card">
+          <a href="{% url 'movie_detail' top_movie.id %}" class="movie-link">
+            <div class="top-movie-image">
+              {% if top_movie.poster %}
+              <img src="{{ top_movie.poster.url }}" alt="{{ top_movie.title }}" />
+              {% else %}
+                <div class="placeholder-image">Sem imagem</div>
+              {% endif %}
+            </div>
+            <div class="top-movie-info">
+              <div class="top-movie-title">
+                <h2>Top #1</h2>
+                <p>{{ top_movie.title }}</p>
+              </div>
+              <div class="top-movie-stats">
+                <div class="rating-average">
+                  <i class="bi bi-star-fill"></i>
+                  <span>{{ top_movie.avg_rating|floatformat:1 }}</span>
+                </div>
+                <div class="rating-count">
+                  <i class="bi bi-chat-dots-fill"></i>
+                  <span>{{ top_movie.rating_count }}</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      {% endif %}
+    </section>
+
+    <!-- Filmes em destaque hoje (Carrossel) -->
+    <section class="featured-movies">
+      <h2>Em destaque hoje</h2>
+      <div id="featuredMoviesCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          {% if featured_movies_groups %}
+            {% for group in featured_movies_groups %}
+              <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <div class="row">
+                  {% for movie in group %}
+                    <div class="col-4">
+                      <a href="{% url 'movie_detail' movie.id %}" class="movie-link">
+                        <div class="movie-card">
+                          {% if movie.poster %}
+                            <img src="{{ movie.poster.url }}"class="d-block w-100" alt="{{ movie.title }}">
+                          {% else %}
+                            <div class="placeholder-image">Sem imagem</div>
+                          {% endif %}
+                        </div>
+                        <div class="movie-details">
+                          <p class="movie-title">{{ movie.title }}</p>
+                          <div class="movie-rating">
+                            {% for i in "12345"|make_list %}
+                              {% if forloop.counter <= movie.stars.full %}
+                                <i class="bi bi-star-fill"></i>
+                              {% elif forloop.counter == movie.stars.full|add:1 and movie.stars.half %}
+                                <i class="bi bi-star-half"></i>
+                              {% else %}
+                                <i class="bi bi-star"></i>
+                              {% endif %}
+                            {% endfor %}
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endfor %}
+          {% else %}
+            <div class="carousel-item active">
+              <div class="no-movies">
+                <p>Nenhum filme em destaque disponível</p>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#featuredMoviesCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#featuredMoviesCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+        <div class="carousel-indicators">
+          {% for group in featured_movies_groups %}
+            <button type="button" data-bs-target="#featuredMoviesCarousel" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active" aria-current="true"{% endif %}></button>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section class="actors-section">
+      <h2>Atores e Atrizes</h2>
+      <div id="actorsCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          {% for group in actors_groups %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+              <div class="actors-row">
+                {% for actor in group|slice:":5" %}
+                  <div class="actor-item" data-name="{{ actor.name }}">
+                      <div class="actor-photo">
+                          <img src="{{ actor.photo }}" alt="{{ actor.name }}">
+                      </div>
+                      <p class="actor-name">{{ actor.name }}</p>
+                  </div>
+                {% endfor %}
+              </div>
+              <div class="actors-row">
+                {% for actor in group|slice:"5:10" %}
+                  <div class="actor-item" data-name="{{ actor.name }}">
+                    <div class="actor-photo">
+                      <img src="{{ actor.photo }}" alt="{{ actor.name }}">
+                    </div>
+                    <p class="actor-name">{{ actor.name }}</p>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#actorsCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#actorsCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </section>  
+
+    <section class="genres-section">
+      <h2>Gêneros</h2>
+      <div id="categoriesCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          {% for group in categories_display_groups %}
+          <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <div class="genres-grid">
+              <div class="genres-row">
+                {% for category in group|slice:":3" %}
+                <div class="genre-item" data-name="{{ category.name }}">
+                  <div class="genre-card"
+                      style="
+                        background: linear-gradient(to bottom, hsl({{ category.hue }}, 100%, 35%), hsl({{ category.hue }}, 100%, 25%));
+                        border-top: 2px solid hsl({{ category.hue }}, 100%, 20%);
+                        border-bottom: 2px solid hsl({{ category.hue }}, 100%, 40%);
+                        border-left: 2px solid hsl({{ category.hue }}, 100%, 30%);
+                        border-right: 2px solid hsl({{ category.hue }}, 100%, 30%);
+                      ">
+                    {{ category.name }}
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+              <div class="genres-row">
+                {% for category in group|slice:"3:" %}
+                <div class="genre-item" data-name="{{ category.name }}">
+                  <div class="genre-card"
+                      style="
+                        background: linear-gradient(to bottom, hsl({{ category.hue }}, 100%, 35%), hsl({{ category.hue }}, 100%, 25%));
+                        border-top: 2px solid hsl({{ category.hue }}, 100%, 20%);
+                        border-bottom: 2px solid hsl({{ category.hue }}, 100%, 40%);
+                        border-left: 2px solid hsl({{ category.hue }}, 100%, 30%);
+                        border-right: 2px solid hsl({{ category.hue }}, 100%, 30%);
+                      ">
+                    {{ category.name }}
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#categoriesCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#categoriesCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  {% block footer %}
+    {% include 'footer.html' %}
+  {% endblock %}
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/home.js' %}"></script>
+{% endblock %}

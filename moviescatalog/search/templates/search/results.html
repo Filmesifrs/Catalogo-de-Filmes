@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Buscar Filmes | Film+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/header.css' %}">
+<link rel="stylesheet" href="{% static 'css/search.css' %}">
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-filmes">
+  {% block header %}
+    {% include 'header.html' %}
+  {% endblock %}
+
+  <!-- Resultados -->
+  {% if movies %}
+
+    <div class="div-search-title">
+      {% if request.GET.genre %}
+        <h5 class="search-title">Filmes do gênero: "{{ request.GET.genre }}"</h5>
+      {% elif request.GET.actor %}
+        <h5 class="search-title">Filmes com o ator/atriz: "{{ request.GET.actor }}"</h5>
+      {% elif request.GET.query %}
+        <h5 class="search-title">Resultados para: "{{ request.GET.query }}"</h5>
+      {% else %}
+        <h5 class="search-title">Todos os filmes</h5>
+      {% endif %}
+    </div>
+
+
+    <div class="movie-list">
+      {% for movie in movies %}
+        <div class="movie-card">
+          <div class="movie-poster">
+            {% if movie.poster %}
+              <img src="{{ movie.poster.url }}" alt="{{ movie.title }}">
+            {% else %}
+              <div class="placeholder-image">Sem imagem</div>
+            {% endif %}
+          </div>
+          <div class="movie-details">
+            <h3 class="movie-title">{{ movie.title }}</h3>
+            <p class="movie-meta">{{ movie.release_year }}</p>
+            <div class="movie-tags">
+              {% for genre in movie.genres.all %}
+                <span class="tag">{{ genre.name }}</span>
+              {% endfor %}
+            </div>
+            <p class="movie-synopsis">{{ movie.synopsis|truncatechars:55 }}</p>
+            <a href="{% url 'movie_detail' movie.id %}" class="btn btn-more">Ver mais</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="container no-results">
+      <p class="no-results">Nenhum resultado encontrado.</p>
+    </div>
+  {% endif %}
+
+  {% block footer %}
+    {% include 'footer.html' %}
+  {% endblock %}
+</div>
+{% endblock %}

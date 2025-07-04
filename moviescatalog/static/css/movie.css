@@ -1,0 +1,406 @@
+/* ===================================
+  CONTAINER PRINCIPAL DO FILME
+=================================== */
+.cartaz-filme {
+  padding: 2rem 5rem 5rem 5rem;
+}
+
+.movie-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* ===================================
+  POSTER DO FILME
+=================================== */
+
+.poster-destaque img,
+.placeholder-image {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+/* ===================================
+  TAGS DE GÊNERO
+=================================== */
+.tags-genero {
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+
+.genero-tag {
+  background-color: transparent;
+  color: white;
+  padding: 5px 10px;
+  font-size: 1rem;
+  border-radius: 20px;
+  border: 1px solid white;
+  font-weight: bold;
+}
+
+/* ===================================
+  INFORMAÇÕES DO FILME
+=================================== */
+.info-filme {
+  padding: 35px;
+}
+
+.info-filme h1 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+}
+
+.info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* ===================================
+  ESTRELAS E NOTA
+=================================== */
+.icon-estrela,
+.icon-estrela-white {
+  font-size: 1.5rem;
+  margin-right: 5px;
+}
+
+.icon-estrela {
+  color: gold;
+}
+
+.icon-estrela-white {
+  color: white;
+}
+
+.nota-media {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.icon-estrela-white {
+  color: white;
+  font-size: 1.3rem;
+  margin-left: 8px;
+}
+
+
+/* ===================================
+  SINOPSE E CRÉDITOS
+=================================== */
+.descricao-filme {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  /* text-align: justify; */
+}
+
+.creditos-filme {
+  font-size: 0.90rem;
+  margin-bottom: 10px;
+}
+
+/* ===================================
+  AÇÕES (BOTÕES)
+=================================== */
+.acoes-filme {
+  display: flex;
+  margin-top: 15px;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.acoes-filme .btn {
+  background-color: #5823b9;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  gap: 8px;
+  font-size: 1.1rem;
+  transition: background 0.3s ease;
+}
+
+.acoes-filme .btn:hover {
+  background-color: #6d38cb;
+}
+
+/* ===================================
+  RESPONSIVIDADE
+=================================== */
+
+@media screen and (max-width: 1024px){
+  .cartaz-filme {
+    padding: 0.5rem 1rem 4.5rem 1rem;
+  }
+
+  .info-filme {
+    padding: 5px;
+  }
+}
+
+/* Telas grandes (acima de 1025px) */
+@media screen and (min-width: 1025px) {
+
+  .poster-destaque {
+    width: 15%;
+  }
+  
+  .info-filme h1 {
+    font-size: 2rem;
+  }
+
+  .nota-media {
+    font-size: 1.6rem;
+  }
+
+  .acoes-filme .btn {
+    font-size: 1.15rem;
+  }
+
+  .descricao-filme,
+  .creditos-filme {
+    font-size: 1.1rem;
+  }
+}
+
+/* ===================================
+  FORMULÁRIO DE AVALIAÇÃO
+=================================== */
+#nota-avaliacao {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background-color: #1A182F;
+  color: white;
+  font-family: inherit;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='white' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 10px;
+}
+
+#nota-avaliacao:focus {
+  outline: none;
+  border-color: #5823b9;
+  box-shadow: 0 0 0 2px rgba(88, 35, 185, 0.3);
+}
+
+.form-avaliacao {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.form-avaliacao h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.rating-stars {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 15px;
+  justify-content: center;
+}
+
+.rating-stars .star {
+  font-size: 2rem;
+  color: #ddd;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  user-select: none;
+}
+
+.rating-stars .star:hover,
+.rating-stars .star.hover {
+  color: #ffd700;
+}
+
+.rating-stars .star.selected {
+  color: #ffd700;
+}
+
+#comentario-avaliacao {
+  width: 100%;
+  min-height: 80px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background-color: #1A182F;
+  color: white;
+  font-family: inherit;
+  font-size: 0.95rem;
+  resize: vertical;
+  margin-bottom: 15px;
+}
+
+#comentario-avaliacao::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#comentario-avaliacao:focus {
+  outline: none;
+  border-color: #5823b9;
+  box-shadow: 0 0 0 2px rgba(88, 35, 185, 0.3);
+}
+
+.form-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.btn-primary {
+  background-color: #5823b9 !important;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #6d38cb !important;
+}
+
+.btn-secondary {
+  background-color: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ===================================
+  SEÇÃO DE AVALIAÇÕES
+=================================== */
+.avaliacoes-section {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.avaliacoes-section h3 {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.avaliacao-item {
+  background-color: #1A182F;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.avaliacao-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.avaliacao-header strong {
+  color: white;
+  font-size: 1rem;
+}
+
+/* ===================================
+  ESTILIZAÇÃO DAS ESTRELAS (5 ícones)
+=================================== */
+.rating-display i.bi-star-fill,
+.rating-display i.bi-star-half {
+  color: #ffd700;
+}
+
+.rating-display i.bi-star {
+  color: #ddd;
+}
+
+.data-avaliacao {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+}
+
+.comentario-avaliacao {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.sem-avaliacoes {
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
+}
+
+/* ===================================
+  RESPONSIVIDADE PARA AVALIAÇÕES
+=================================== */
+@media screen and (max-width: 768px) {
+  .form-buttons {
+    flex-direction: column;
+  }
+  
+  .avaliacao-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  .rating-stars {
+    justify-content: flex-start;
+  }
+  
+  .rating-stars .star {
+    font-size: 1.5rem;
+  }
+}
+
+
+.btn-toggle-watched {
+  background-color: transparent;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  border: none;
+  padding: 0px 0px;
+}
+
+.btn-toggle-watched:hover {
+  color: #552ab4;
+}
+
+@media screen and (max-width: 480px) {
+  .btn-toggle-watched span {
+    display: none;
+  }
+}
