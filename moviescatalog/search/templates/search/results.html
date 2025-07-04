@@ -17,6 +17,20 @@
 
   <!-- Resultados -->
   {% if movies %}
+
+    <div class="div-search-title">
+      {% if request.GET.genre %}
+        <h5 class="search-title">Filmes do gênero: "{{ request.GET.genre }}"</h5>
+      {% elif request.GET.actor %}
+        <h5 class="search-title">Filmes com o ator/atriz: "{{ request.GET.actor }}"</h5>
+      {% elif request.GET.query %}
+        <h5 class="search-title">Resultados para: "{{ request.GET.query }}"</h5>
+      {% else %}
+        <h5 class="search-title">Todos os filmes</h5>
+      {% endif %}
+    </div>
+
+
     <div class="movie-list">
       {% for movie in movies %}
         <div class="movie-card">

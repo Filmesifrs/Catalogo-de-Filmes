@@ -83,15 +83,18 @@
         <div class="form-avaliacao">
           <h3>Avalie este filme</h3>
           <div class="form-group">
-            <select class="form-control" id="nota-avaliacao">
-              <option value="0" selected disabled>Selecione uma nota</option>
+            <select id="nota-avaliacao" class="form-control">
+              <option value="0" disabled {% if not edit %}selected{% endif %}>Selecione uma nota</option>
               {% for i in "1234567890" %}
-                <option value="{{ forloop.counter }}">{{ forloop.counter }}</option>
+                <option value="{{ forloop.counter }}"
+                  {% if edit and user_rating and user_rating.rating == forloop.counter %}selected{% endif %}>
+                  {{ forloop.counter }}
+                </option>
               {% endfor %}
             </select>
           </div>
 
-          <textarea id="comentario-avaliacao" placeholder="Escreva seu comentário sobre o filme" rows="4"></textarea>
+          <textarea id="comentario-avaliacao" rows="4" placeholder="Escreva seu comentário sobre o filme">{% if edit and user_rating %}{{ user_rating.review }}{% endif %}</textarea>
 
           <div class="form-buttons">
             <button id="btn-enviar-avaliacao" class="btn btn-primary">Enviar Avaliação</button>

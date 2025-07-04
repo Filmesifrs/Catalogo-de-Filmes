@@ -2,6 +2,12 @@
   Movie List - Container
 =================================== */
 
+.div-search-title{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
 .movie-list {
   display: flex;
   gap: 0.5rem;

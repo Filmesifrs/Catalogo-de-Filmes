@@ -63,10 +63,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  document.querySelectorAll('.actor-item, .genre-item').forEach(item => {
+  document.querySelectorAll('.genre-item').forEach(item => {
     item.addEventListener('click', function () {
-      const queryName = this.getAttribute('data-name');
-      window.location.href = `/search/?query=${encodeURIComponent(queryName)}`;
+      const genreName = this.getAttribute('data-name');
+      if (genreName) {
+        window.location.href = `/search/?genre=${encodeURIComponent(genreName)}`;
+      }
+    });
+  });
+
+  document.querySelectorAll('.actor-item').forEach(item => {
+    item.addEventListener('click', function () {
+      const actorName = this.getAttribute('data-name');
+      if (actorName) {
+        window.location.href = `/search/?actor=${encodeURIComponent(actorName)}`;
+      }
     });
   });
 });

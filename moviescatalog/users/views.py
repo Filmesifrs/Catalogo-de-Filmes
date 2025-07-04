@@ -1,10 +1,9 @@
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
+from django.contrib.messages import get_messages
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
 from django.contrib.auth import login
-from django.shortcuts import render
 from django.contrib import messages
 from django.db.models import Avg
 
@@ -79,22 +78,23 @@ def perfil(request):
 
 @login_required
 def minhas_avaliacoes(request):
-    avaliacoes = Rating.objects.filter(user=request.user).select_related("movie").order_by("-created_at")
+  avaliacoes = Rating.objects.filter(user=request.user).select_related("movie").order_by("-created_at")
 
-    for avaliacao in avaliacoes:
-        estrelas = calcular_estrelas(avaliacao.rating)
-        avaliacao.full_stars = estrelas['full']
-        avaliacao.half_star = estrelas['half']
-        avaliacao.empty_stars = estrelas['empty']
+  for avaliacao in avaliacoes:
+    estrelas = calcular_estrelas(avaliacao.rating)
+    avaliacao.full_stars = estrelas['full']
+    avaliacao.half_star = estrelas['half']
+    avaliacao.empty_stars = estrelas['empty']
 
-    return render(request, "users/reviews.html", {"avaliacoes": avaliacoes})
+  return render(request, "users/reviews.html", {"avaliacoes": avaliacoes})
 
 def logout_view(request):
   logout(request)
-  list(messages.get_messages(request))  # Isso consome e limpa todas as mensagens
+  list(get_messages(request))
   return redirect('users:login')
 
 def login_view(request):
+  list(get_messages(request))
   if request.method == 'POST':
     form = CustomLoginForm(request, data=request.POST)
     if form.is_valid():
@@ -115,7 +115,7 @@ def register_view(request):
       return redirect('/')
     else:
       print(form.errors)
-      messages.error(request, "Erro no cadastro. Verifique os dados.")
+      list(get_messages(request))
   else:
     form = CustomRegisterForm()
   return render(request, 'users/register.html', {'form': form})
@@ -123,11 +123,11 @@ def register_view(request):
 def change_password(request):
   form = CustomPasswordChangeForm(user=request.user, data=request.POST or None)
   if request.method == 'POST':
-      if form.is_valid():
-          user = form.save()
-          update_session_auth_hash(request, user)
-          messages.success(request, 'Senha atualizada com sucesso!')
-          return redirect('login')
-      else:
-          messages.error(request, 'Corrija os erros abaixo.')
+    if form.is_valid():
+      user = form.save()
+      update_session_auth_hash(request, user)
+      messages.success(request, 'Senha atualizada com sucesso!')
+      return redirect('login')
+    else:
+      messages.error(request, 'Corrija os erros abaixo.')
   return render(request, 'users/change_password.html', {'form': form})
