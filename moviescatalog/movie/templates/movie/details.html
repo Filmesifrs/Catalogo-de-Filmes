@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Filmes | Catálogo de Filmes{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/header.css' %}">
+<link rel="stylesheet" href="{% static 'css/movie.css' %}">
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+{% endblock %}
+
+{% block content %}
+{% csrf_token %}
+<div class="tela-filme">  
+  {% block header %}
+    {% include 'header.html' %}
+  {% endblock %}
+
+  <div class="cartaz-filme">
+
+    {% if genres %}
+    <div class="tags-genero">
+      {% for genre in genres %}
+      <span class="genero-tag">{{ genre }}</span>
+      {% endfor %}
+
+      <button id="btn-toggle-watched" class="btn-toggle-watched" data-watched="{{ watched|yesno:'true,false' }}">
+        <i class="bi {% if watched %}bi-eye-fill{% else %}bi-eye{% endif %}"></i>
+        <span>{% if watched %}Assistido{% else %}Marcar como assistido{% endif %}</span>
+      </button>
+    </div>
+    {% endif %}
+    
+    <div class="movie-card">
+      
+      <div class="poster-destaque">
+        {% if poster_url %}
+        <img src="{{ poster_url }}" alt="{{ title }}">
+        {% else %}
+        <div class="placeholder-image">Sem imagem</div>
+        {% endif %}
+      </div>
+
+      <div class="info-filme">
+        <div class="info-header">
+
+          <h1>{{ title }}</h1>
+
+          <div class="nota-destaque">
+            <i class="bi bi-star-fill icon-estrela"></i>
+            <span class="nota-media">
+              {{ avg_rating|floatformat:1|default_if_none:"-" }} / 10
+            </span>
+          </div>
+        </div>
+
+        <p class="filme-meta">
+          {% if release_year %}{{ release_year }}{% endif %}
+        </p>
+
+        {% if synopsis %}
+        <p class="descricao-filme">{{ synopsis }}</p>
+        {% endif %}
+
+        {% if directors %}
+        <p class="creditos-filme"><strong>Direção:</strong>
+          {% for director in directors %}
+          {{ director }}{% if not forloop.last %}, {% endif %}
+          {% endfor %}
+        </p>
+        {% endif %}
+
+        <hr>
+
+        {% if actors %}
+        <p class="creditos-filme"><strong>Atores:</strong>
+          {% for actor in actors %}
+          {{ actor }}{% if not forloop.last %}, {% endif %}
+          {% endfor %}
+        </p>
+        {% endif %}
+
+        <div class="form-avaliacao">
+          <h3>Avalie este filme</h3>
+          <div class="form-group">
+            <select class="form-control" id="nota-avaliacao">
+              <option value="0" selected disabled>Selecione uma nota</option>
+              {% for i in "1234567890" %}
+                <option value="{{ forloop.counter }}">{{ forloop.counter }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <textarea id="comentario-avaliacao" placeholder="Escreva seu comentário sobre o filme" rows="4"></textarea>
+
+          <div class="form-buttons">
+            <button id="btn-enviar-avaliacao" class="btn btn-primary">Enviar Avaliação</button>
+          </div>
+        </div>
+
+        <!-- Seção de Avaliações -->
+        <div class="avaliacoes-section">
+          <br>
+          <h3>Avaliações dos usuários</h3>
+          <div id="lista-avaliacoes">
+            {% if ratings %}
+              {% for rating in ratings %}
+              <div class="avaliacao-item">
+                <div class="avaliacao-header">
+                  <strong>{{ rating.user.username }}</strong>
+                  <div class="rating-display">
+                    {% for i in "12345" %}
+                      {% if forloop.counter <= rating.stars.full %}
+                        <i class="bi bi-star-fill"></i>
+                      {% elif forloop.counter == rating.stars.full|add:1 and rating.stars.half %}
+                        <i class="bi bi-star-half"></i>
+                      {% else %}
+                        <i class="bi bi-star"></i>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                  <span class="data-avaliacao">{{ rating.created_at|date:"d/m/Y" }}</span>
+                </div>
+                {% if rating.review %}
+                <p class="comentario-avaliacao">{{ rating.review }}</p>
+                {% endif %}
+              </div>
+              {% endfor %}
+            {% else %}
+              <p class="sem-avaliacoes">Ainda não há avaliações para este filme. Seja o primeiro a avaliar!</p>
+            {% endif %}
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  {% block footer %}
+    {% include "footer.html" %}
+  {% endblock %}
+</div>
+
+<script>
+  const movieId = "{{ movie_id }}";
+</script>
+<script src="{% static 'js/movie.js' %}"></script>
+{% endblock %}

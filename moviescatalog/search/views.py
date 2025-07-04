@@ -12,6 +12,7 @@ def search_movies(request):
     if q:
       movies = movies.filter(
         Q(title__icontains=q) |
+        Q(title__iregex=rf'\b{q}\b') |
         Q(synopsis__icontains=q) |
         Q(genres__name__icontains=q) |
         Q(people__name__icontains=q)

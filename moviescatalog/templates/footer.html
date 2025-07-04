@@ -1,17 +1,17 @@
 <div class="bottom-nav">
-  <a href="#" class="nav-item">
+  <a href="{% url 'users:perfil' %}" class="nav-item {% if request.path == '/users/perfil/' %}active{% endif %}">
     <div class="nav-icon">
       <i class="bi bi-person"></i>
     </div>
     <div>Perfil</div>
   </a>
-  <a href="/" class="nav-item active">
+  <a href="{% url 'home:home' %}" class="nav-item {% if request.path == '/' %}active{% endif %}">
     <div class="nav-icon">
       <i class="bi bi-house"></i>
     </div>
     <div>Painel</div>
   </a>
-  <a href="#" class="nav-item">
+  <a href="{% url 'users:minhas_avaliacoes' %}" class="nav-item {% if request.path == '/users/avaliacoes/' %}active{% endif %}">
     <div class="nav-icon">
       <i class="bi bi-chat-dots"></i>
     </div>
